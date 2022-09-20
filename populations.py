@@ -71,12 +71,14 @@ def BioMassCalculations():
     if TCBiomass * 10 <= (SCBiomass) and SCBiomassB <= (PCBiomass + DPBiomass) and PCBiomass <= PPBiomass:
         return True
 
-def output():
+def output(fancy=false):
     for group in [PrimaryProducers, PrimaryConsumers, Decomposers, SecondaryConsumers, TertiaryConsumers]:
-        for species in group:
-            print(f"{species}: {vars()[species].biomass}")
-
+        if fancy:
+            for species in group:
+                print(f"{species}: {vars()[species].biomass}")
+        else:
+            print(species)
 
 if name == __main__:
     if BioMassCalculations():
-        output()
+        output(true)
