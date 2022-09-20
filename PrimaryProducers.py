@@ -1,0 +1,11 @@
+from OrganismClass import *
+Bamboo = PP()
+Junipers = PP()
+SoyBeans = PP()
+BottleGourds = PP()
+Hemp = PP()
+Poppy = PP()
+Ginkgo = PP()
+Moss = PP()
+Ferns = PP()
+Rye = PP()
