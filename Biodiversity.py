@@ -19,11 +19,14 @@ def get_n(species):
 
 
 N = get_N()
-sum = 0
-for species in speciesList:
-    sum += (get_n(species)/N) ^ 2
 
-BiodiversityIndex = 1 - sum
+
+def BiodiversityIndes():
+    sum = 0
+    for species in speciesList:
+        sum += (get_n(species)/N) ^ 2
+
+    return 1 - sum
 
 
 if name == __main__:

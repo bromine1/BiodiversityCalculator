@@ -68,8 +68,16 @@ def BioMassCalculations():
     for x in TertiaryConsumers:
         TCBiomass += vars()[x].biomass
 
-    if TCBiomass * 10 <= (SCBiomass) and SCBiomassB <= (PCBiomass + DPBiomass) and PCBiomass <= PPBiomass:
-        return True
+    if TCBiomass * 10 <= (SCBiomass):
+        if SCBiomassB <= (PCBiomass + DPBiomass):
+            if PCBiomass <= PPBiomass:
+                return "Satisfactory"
+            else:
+                return "Not Enough Plants"
+        else:
+            return "Not enough Primary Consumers"
+    else:
+        return "Not Enough Secondary Consumers"
 
 def output(fancy=false):
     for group in [PrimaryProducers, PrimaryConsumers, Decomposers, SecondaryConsumers, TertiaryConsumers]:
@@ -81,8 +89,8 @@ def output(fancy=false):
             SpeciesList = []
             for species in group:
                 return SpeciesList
-                
+
 
 if name == __main__:
-    if BioMassCalculations():
+    if BioMassCalculations() == Satisfactory:
         output(true)
