@@ -76,8 +76,12 @@ def output(fancy=false):
         if fancy:
             for species in group:
                 print(f"{species}: {vars()[species].biomass}")
+            return True
         else:
-            print(species)
+            SpeciesList = []
+            for species in group:
+                return SpeciesList
+                
 
 if name == __main__:
     if BioMassCalculations():
