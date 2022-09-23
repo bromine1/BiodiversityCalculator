@@ -1,5 +1,5 @@
 import populations
-from PrimaryProducersers import *
+from PrimaryProducers import *
 from PrimaryConsumers import *
 from Decomposers import *
 from SecondaryConcumers import *
@@ -21,13 +21,13 @@ def get_n(species):
 N = get_N()
 
 
-def BiodiversityIndes():
+def BiodiversityIndex():
     sum = 0
-    for species in speciesList:
+    for species in SpeciesList:
         sum += (get_n(species)/N) ^ 2
 
-    return 1 - sum
+    return (1 - sum)
 
 
-if name == __main__:
-    print(BiodiversityIndex)
+if __name__ == "__main__":
+    print(BiodiversityIndex())

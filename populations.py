@@ -88,8 +88,24 @@ def output(fancy=False):
     print("Biomass (grams)".center(20), end="")
     print("Unit Amount".center(13))
     print("".ljust(50, "_"))
+    groups = [
+        "Primary Producers",
+        "Primary Consumers",
+        "Decomposers",
+        "Secondary Consumers",
+        "Tertiary Consumers"
+    ]
+    CurrentGroup = 0
     for group in [PrimaryProducers, PrimaryConsumers, Decomposers, SecondaryConsumers, TertiaryConsumers]:
         if fancy:
+            print("\n\n")
+            print(f"{groups[CurrentGroup]}".center(53))
+            CurrentGroup += 1
+            print("Species".center(20), end="")
+            print("Biomass (grams)".center(20), end="")
+            print("Unit Amount".center(13))
+            print("".ljust(50, "_"))
+            
             for species in group:
                 print(f"{species}".center(20), end="|")
                 print(f"{round(group[species].biomass, 2)}".center(20), end="|")
