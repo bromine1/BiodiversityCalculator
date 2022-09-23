@@ -84,10 +84,11 @@ def BioMassCalculations():
 
 def output(fancy=False):
     # Function to output to terminal tables of data
-    print("Species".center(20), end="")
-    print("Biomass (grams)".center(20), end="")
-    print("Unit Amount".center(13))
-    print("".ljust(50, "_"))
+    # print("Species".center(20), end="")
+    # print("Biomass (grams)".center(20), end="")
+    # print("Unit Amount".center(13), end="")
+    # print("Number of Organisms".center(20))
+    # print("".ljust(70, "_"))
     groups = [
         "Primary Producers",
         "Primary Consumers",
@@ -101,18 +102,20 @@ def output(fancy=False):
 
     for group in [PrimaryProducers, PrimaryConsumers, Decomposers, SecondaryConsumers, TertiaryConsumers]:
         print("\n\n")
-        print(f"{groups[CurrentGroup]}".center(53))
+        print(f"{groups[CurrentGroup]}\n".center(80))
         CurrentGroup += 1
         print("Species".center(20), end="")
         print("Biomass (grams)".center(20), end="")
-        print("Unit Amount".center(13))
-        print("".ljust(50, "_"))
+        print("Unit Amount".center(20), end="")
+        print("Number of Organisms".center(20))
+        print("".ljust(80, "_"))
         
         for species in group:
             print(f"{species}".center(20), end="|")
             print(f"{round(group[species].biomass, 2)}".center(20), end="|")
             # print("grams ", end="")
-            print(f"{group[species].unit_num}".ljust(10))
+            print(f"{group[species].unit_num}".ljust(20), end="|")
+            print(f"{group[species].biomass / group[species].mpo}")
 
 
 def getSpeciesList():
