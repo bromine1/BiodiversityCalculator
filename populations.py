@@ -97,26 +97,27 @@ def output(fancy=False):
     ]
     CurrentGroup = 0
     for group in [PrimaryProducers, PrimaryConsumers, Decomposers, SecondaryConsumers, TertiaryConsumers]:
-        if fancy:
-            print("\n\n")
-            print(f"{groups[CurrentGroup]}".center(53))
-            CurrentGroup += 1
-            print("Species".center(20), end="")
-            print("Biomass (grams)".center(20), end="")
-            print("Unit Amount".center(13))
-            print("".ljust(50, "_"))
-            
-            for species in group:
-                print(f"{species}".center(20), end="|")
-                print(f"{round(group[species].biomass, 2)}".center(20), end="|")
-                # print("grams ", end="")
-                print(f"{group[species].unit_num}".ljust(10))
-        else:
-            SpeciesList = []
-            for species in group:
-                return SpeciesList
-
+        print("\n\n")
+        print(f"{groups[CurrentGroup]}".center(53))
+        CurrentGroup += 1
+        print("Species".center(20), end="")
+        print("Biomass (grams)".center(20), end="")
+        print("Unit Amount".center(13))
+        print("".ljust(50, "_"))
+        
+        for species in group:
+            print(f"{species}".center(20), end="|")
+            print(f"{round(group[species].biomass, 2)}".center(20), end="|")
+            # print("grams ", end="")
+            print(f"{group[species].unit_num}".ljust(10))
+def getSpeciesList():
+    SpeciesList = []
+    for group in [PrimaryProducers, PrimaryConsumers, Decomposers, SecondaryConsumers, TertiaryConsumers]:
+        for species in group:
+            SpeciesList.append(group[species])
+    return SpeciesList
+        
 
 if __name__ == "__main__":
     if BioMassCalculations():
-        output(fancy=True)
+        output()

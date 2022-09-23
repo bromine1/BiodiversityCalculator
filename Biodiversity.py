@@ -1,11 +1,11 @@
-import populations
+from populations import *
 from PrimaryProducers import *
 from PrimaryConsumers import *
 from Decomposers import *
 from SecondaryConcumers import *
 
-SpeciesList = populations.output()
 
+SpeciesList = getSpeciesList()
 
 def get_N():
     total = 0
@@ -15,16 +15,15 @@ def get_N():
 
 
 def get_n(species):
-    species.unit_num
+    return species.unit_num
 
 
 N = get_N()
 
-
 def BiodiversityIndex():
     sum = 0
     for species in SpeciesList:
-        sum += (get_n(species)/N) ^ 2
+        sum += (get_n(species)/N) ** 2
 
     return (1 - sum)
 
