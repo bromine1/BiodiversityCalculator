@@ -1,7 +1,7 @@
 from OrganismClass import *
 Spider = SC(mass_per_organism=0.01, num_of_organism=180)
 Toad = SC(mass_per_organism=2.31, num_of_organism=50)
-Quail = SC(mass_per_organism=120, num_of_organism=10)
+Quail = SC(mass_per_organism=120, num_of_organism=30)
 Dragonfly = SC(mass_per_organism=0.075, num_of_organism=300)
 
 # Cellar spiders were chosen to match around 9 broods

@@ -10,8 +10,10 @@ Ginkgo = PP(mass_per_organism=92475, organism_per_acre=550, acre=28)
 Moss = PP(mass_per_organism=1155.9, organism_per_acre=20, acre=40) #can live on trees and other surfaces
 Ferns = PP(mass_per_organism=554.8, organism_per_acre=21700, acre=10, unit_num=217)
 Rye = PP(mass_per_organism=27215.5, organism_per_acre=40, acre=5)
-#organism per acre is bushel per acre, mass per organism is mass per bushel
-
+# organism per acre is bushel per acre, mass per organism is mass per bushel
+# Rye MPO comes from bushel weight, 60 pounds -> acres
+# 40 bushels an acre
+# comes out to around 45000 grams per acre
 
 # Some plants, such as the soybean, hemp, and fern
 # had unit numbers assigned. This was in order to not

@@ -71,17 +71,28 @@ def BioMassCalculations():
     
     # Check to make sure that is enough energy in the system,
     # and report back errors
-    if TCBiomass * 10 <= (SCBiomass):
-        if SCBiomass <= (PCBiomass + DPBiomass):
-            if PCBiomass <= PPBiomass:
+    # if TCBiomass * 10 <= (SCBiomass):
+    #     if SCBiomass <= (PCBiomass + DPBiomass):
+    #         if PCBiomass <= PPBiomass:
+    #             return True
+    #         else:
+    #             return "Not Enough Plants"
+    #     else:
+    #         return "Not enough Primary Consumers"
+    # else:
+    #     return "Not Enough Secondary Consumers"
+    
+    if PCBiomass <= PPBiomass:
+        if SCBiomass * 10 <= (PPBiomass + DPBiomass):
+            if TCBiomass * 10 <= SCBiomass:
                 return True
             else:
-                return "Not Enough Plants"
+                print("Not Enough Secondary")
         else:
-            return "Not enough Primary Consumers"
+            print("Not enough primary and decomposers")
     else:
-        return "Not Enough Secondary Consumers"
-
+        print("Not enough primary producers")
+    
 def output(fancy=False):
     # Function to output to terminal tables of data
     # print("Species".center(20), end="")
