@@ -10,68 +10,72 @@ from SecondaryConcumers import *
 # Secondary Producer = 1
 
 
+PrimaryProducers = {
+    'Bamboo':       Bamboo,
+    "Junipers":     Junipers,
+    "SoyBeans":     SoyBeans,
+    "BottleGourds": BottleGourds,
+    "Hemp":         Hemp,
+    "Poppy":        Poppy,
+    "Ginkgo":       Ginkgo,
+    "Moss":         Moss,
+    "Ferns":        Ferns,
+    "Rye":          Rye,
+}
 
-PrimaryProducers = [
-    "Bamboo",
-    "Junipers",
-    "SoyBeans",
-    "BottleGourds",
-    "Hemp",
-    "Poppy",
-    "Ginkgo",
-    "Moss",
-    "Ferns",
-    "Rye"
-]
+PrimaryConsumers = {
+    "Bee":          Bee,
+    "Ant":          Ant,
+    "Butterfly":    Butterfly,
+}
 
-PrimaryConsumers = [
-    "Bee",
-    "Ant",
-    "Butterfly"
-]
+Decomposers = {
+    "Maggot":       Maggot,
+    "Worm":         Worm,
+}
 
-Decomposers = [
-    "Fly",
-    "Worm"
-]
-SecondaryConsumers = [
-    "Spider",
-    "Toad",
-    "Quail",
-    "Dragonfly"
-]
+SecondaryConsumers = {
+    "Spider":       Spider,
+    "Toad":         Toad,
+    "Quail":        Quail,
+    "Dragonfly":    Dragonfly,
+}
 
-TertiaryConsumers = [
-    "Owl"
-]
+Owl = TC(mass_per_organism=18.34, num_of_organism=6)
+# Chosen to have enough for humans to utilize,
 
-Owl = TC()
+TertiaryConsumers = {
+    "Owl":          Owl,
+}
+
+Owl = TC(mass_per_organism=18.34, num_of_organism=6)
+# Chosen to have enough for humans to utilize,
 
 def BioMassCalculations():
     PPBiomass = 0
     for x in PrimaryProducers:
-        PPBiomass += vars()[x].biomass
+        PPBiomass += PrimaryProducers[x].biomass
 
     PCBiomass = 0
     for x in PrimaryConsumers:
-        PCBiomass += vars()[x].biomass
+        PCBiomass += PrimaryConsumers[x].biomass
 
     DPBiomass = 0
     for x in Decomposers:
-        DPBiomass += vars()[x].biomass
+        DPBiomass += Decomposers[x].biomass
 
     SCBiomass = 0
     for x in SecondaryConsumers:
-        SCBiomass += vars()[x].biomass
+        SCBiomass += SecondaryConsumers[x].biomass
 
     TCBiomass = 0
     for x in TertiaryConsumers:
-        TCBiomass += vars()[x].biomass
+        TCBiomass += TertiaryConsumers[x].biomass
 
     if TCBiomass * 10 <= (SCBiomass):
-        if SCBiomassB <= (PCBiomass + DPBiomass):
+        if SCBiomass <= (PCBiomass + DPBiomass):
             if PCBiomass <= PPBiomass:
-                return "Satisfactory"
+                return True
             else:
                 return "Not Enough Plants"
         else:
@@ -79,18 +83,24 @@ def BioMassCalculations():
     else:
         return "Not Enough Secondary Consumers"
 
-def output(fancy=false):
+def output(fancy=False):
+    print("Species".center(20), end="")
+    print("Biomass (grams)".center(20), end="")
+    print("Unit Amount".center(13))
+    print("".ljust(50, "_"))
     for group in [PrimaryProducers, PrimaryConsumers, Decomposers, SecondaryConsumers, TertiaryConsumers]:
         if fancy:
             for species in group:
-                print(f"{species}: {vars()[species].biomass}")
-            return True
+                print(f"{species}".center(20), end="|")
+                print(f"{round(group[species].biomass, 2)}".center(20), end="|")
+                # print("grams ", end="")
+                print(f"{group[species].unit_num}".ljust(10))
         else:
             SpeciesList = []
             for species in group:
                 return SpeciesList
 
 
-if name == __main__:
-    if BioMassCalculations() == Satisfactory:
-        output(true)
+if __name__ == "__main__":
+    if BioMassCalculations():
+        output(fancy=True)

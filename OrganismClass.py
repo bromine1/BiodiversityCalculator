@@ -10,8 +10,10 @@ class Organism:
             self.biomass = self.mpo * acre * self.opa
         if unit_num is not None:
             self.unit_num = unit_num
+        elif num_of_organism is not None:
+            self.unit_num = self.noo
         else:
-            self.unit_num = num_of_organism
+            self.unit_num = acre * self.opa
 
 
 class PP (Organism):
@@ -25,8 +27,11 @@ class PP (Organism):
             self.biomass = self.mpo * acre * self.opa
         if unit_num is not None:
             self.unit_num = unit_num
+        elif num_of_organism is not None:
+            self.unit_num = self.noo
+            
         else:
-            self.unit_num = num_of_organism
+            self.unit_num = acre * self.opa
 
 
 class PC (Organism):  # Primary Consumer
@@ -40,8 +45,11 @@ class PC (Organism):  # Primary Consumer
             self.biomass = self.mpo * acre * self.opa
         if unit_num is not None:
             self.unit_num = unit_num
+        elif num_of_organism is not None:
+            self.unit_num = self.noo
+            
         else:
-            self.unit_num = num_of_organism
+            self.unit_num = acre * self.opa
 
 
 class SC (Organism):  # Secondary Consumer
@@ -55,8 +63,11 @@ class SC (Organism):  # Secondary Consumer
             self.biomass = self.mpo * acre * self.opa
         if unit_num is not None:
             self.unit_num = unit_num
+        elif num_of_organism is not None:
+            self.unit_num = self.noo
+            
         else:
-            self.unit_num = num_of_organism
+            self.unit_num = acre * self.opa
 
 
 class TC (Organism):  # Tertiary Consumer
@@ -70,8 +81,11 @@ class TC (Organism):  # Tertiary Consumer
             self.biomass = self.mpo * acre * self.opa
         if unit_num is not None:
             self.unit_num = unit_num
+        elif num_of_organism is not None:
+            self.unit_num = self.noo
+            
         else:
-            self.unit_num = num_of_organism
+            self.unit_num = acre * self.opa
 
 
 class DP (Organism):
@@ -85,5 +99,8 @@ class DP (Organism):
             self.biomass = self.mpo * acre * self.opa
         if unit_num is not None:
             self.unit_num = unit_num
+        elif num_of_organism is not None:
+            self.unit_num = self.noo
+            
         else:
-            self.unit_num = num_of_organism
+            self.unit_num = acre * self.opa

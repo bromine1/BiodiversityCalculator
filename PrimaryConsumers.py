@@ -1,4 +1,8 @@
 from OrganismClass import *
-Bee = PC()
-Ant = PC()
-Butterfly = PC()
+Bee = PC(mass_per_organism=0.0185, num_of_organism=30000, unit_num=3)
+Ant = PC(mass_per_organism=0.004, num_of_organism=50000, unit_num=3)
+Butterfly = PC(mass_per_organism=0.000067, num_of_organism=500, unit_num=3)
+
+# Bees get their numbers from hives, 3 hives on the island
+# Ants are derived from ant colonies, 3 colonies
+# butterflies are derived from egg counts, unit number 
